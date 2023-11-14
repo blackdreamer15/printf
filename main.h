@@ -3,12 +3,10 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 #include <unistd.h>
-#include <stdlib.h>
-#include <math.h>
 
-char *its(int num);
-int _printf(const char * const format,...);
+int _printf(const char *format, ...);
 
 #endif
 

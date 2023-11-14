@@ -6,75 +6,55 @@
  *
  * Return: number of characters printed(excluding '\0').
  */
-int _printf(const char * const format,...)
+int _printf(const char *format, ...)
 {
-	int i, d, buffer_index, bytes;
-	char *buffer;
-	char *ptr;
 	va_list args;
+	int chars_printed = 0;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
-	i = 0;
-	buffer_index = 0;
-	buffer = malloc(1024);
-	if (!buffer)
+
+	while (*format != '\0')
 	{
-		perror("Memory allocation failure");
-		exit(EXIT_FAILURE);
-	}
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%')
+		if (*format == '%')
 		{
-			i++;
-			if (format[i] == 'c')
+			format++;
+			if (*format == 'c')
 			{
 				char c = va_arg(args, int);
 
-				buffer[buffer_index] = c;
-				buffer_index++;
+				write(1, &c, 1);
+				chars_printed += 1;
+				format++;
+
 			}
-			else if (format[i] == 's')
+			else if (*format == 's')
 			{
 				char *str = va_arg(args, char *);
 
-				while (*str != '\0') 
-				{
-					buffer[buffer_index] = *str;
-					str++;
-					buffer_index++;
-				}
+				write(1, str, strlen(str));
+				chars_printed += strlen(str);
+				format++;
 			}
-			else if (format[i] == '%')
+			else if (*format == '%')
 			{
-				buffer[buffer_index] = '%';
-				buffer_index++;
-			}
-			else if (format[i] == 'd' || format[i] == 'i')
-			{
-				d = va_arg(args, int);
-				ptr = its(d);
-				while (*ptr != '\0')
-				{
-					buffer[buffer_index] = *ptr;
-					ptr++;
-					buffer_index++;
-				}
-				free(its(d));
+				char c = '%';
+
+				write(1, &c, 1);
+				chars_printed += 1;
+				format++;
 			}
 		}
 		else
 		{
-			buffer[buffer_index] = format[i];
-			buffer_index++;
+			write(1, format, 1);
+			chars_printed += 1;
+			format++;
 		}
-		i++;
 	}
-
-	buffer[buffer_index] = '\0';
-	bytes = write(1, buffer, buffer_index);
-	free(buffer);
 	va_end(args);
-	return (bytes);
+	return (chars_printed);
 
 }
+
