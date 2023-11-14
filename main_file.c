@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == '%')
 			{
-				chars_printed += write(1, "%", 1);
+				chars_printed += write(1, format, 1);
 			}
 		}
 		else
