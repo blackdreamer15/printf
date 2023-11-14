@@ -35,8 +35,16 @@ int _printf(const char *format, ...)
 					return (-1);
 			}
 			else if (*format == '%')
-			{
 				chars_printed += write(1, format, 1);
+			else if (*format == 'd' || *format == 'i')
+			{
+				char *c = its(va_arg(args, int));
+
+				if (c != NULL)
+				{
+					chars_printed += write(1, c, strlen(c));
+					free(c);
+				}
 			}
 		}
 		else
@@ -45,6 +53,5 @@ int _printf(const char *format, ...)
 	}
 	va_end(args);
 	return (chars_printed);
-
 }
 
