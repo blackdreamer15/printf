@@ -13,7 +13,7 @@ char *_binary(int value);
 
 /**
  * struct converter - defines a struct data type for symbols and functions
- * @op: operator
+ * @symb: operator
  * @func: function handling the operator*/
 typedef struct converter converter_t;
 
