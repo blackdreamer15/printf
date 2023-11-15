@@ -1,5 +1,5 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -16,5 +16,6 @@ char *_binary(int value);
  * @op: operator
  * @func: function handling the operator*/
 typedef struct converter converter_t;
-#endif
+
+#endif /*MAIN_H*/
 
