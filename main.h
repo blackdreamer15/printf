@@ -9,6 +9,7 @@
 
 int _printf(const char *format, ...);
 char *its(int num);
+char *_binary(int value);
 
 #endif
 

@@ -46,6 +46,17 @@ int _printf(const char *format, ...)
 					free(c);
 				}
 			}
+			else if (*format == 'b')
+			{
+				char *bit = _binary(va_arg(args, int));
+				if (bit != NULL)
+				{
+					chars_printed += write(1, bit, strlen(bit));
+					free(bit);
+				}
+				else
+					return (-1);
+			}
 		}
 		else
 			chars_printed += write(1, format, 1);
