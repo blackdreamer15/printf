@@ -10,7 +10,7 @@
  *
  * Return: number of characters printed.
 */
-int handle_parsing(char *format, converter_t format_list, va_list args)
+int handle_parsing(char *format, converter_t format_list[], va_list args)
 {
 	int i, j,val_return, chars_printed = 0;
 
