@@ -10,15 +10,26 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int chars_printed = 0;
+	converter_t format_list[] = {
+		{'c', print_char},
+		{'s', print_str},
+		{'%', print_percent},
+		{'d', print_int},
+		{'i', print_int},
+		{'b', print_bin},
+                {'u', unsigned_int},
+                {'x', print_hex},
+                {'X', print_hex},
+		{NULL, NULL}
+	};
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(args, format);
 
-	while (*format)
-	{
-		if (*format == '%' && format++)
-		{
+
+	chars_printed = handle_parsing(format, format_list, args);
 			if (*format == 'c')
 			{
 				char c = va_arg(args, int);
@@ -54,15 +65,9 @@ int _printf(const char *format, ...)
 					chars_printed += write(1, bit, strlen(bit));
 					free(bit);
 				}
-				else
-					return (-1);
-			}
-		}
-		else
-			chars_printed += write(1, format, 1);
-		format++;
-	}
+
 	va_end(args);
+
 	return (chars_printed);
 }
 
