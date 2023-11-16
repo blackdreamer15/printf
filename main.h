@@ -58,8 +58,10 @@ char *_binary(int value);
 
 /**
  * struct fmt_func - Struct fmt_funct
+ * 
  * @fmt_char: format specifier
- * @func: pointer to function that handles a particular specifier
+ * @func: pointer to function that handles a particular
+ * specifier
  */
 typedef struct fmt_func
 {
@@ -67,5 +69,4 @@ typedef struct fmt_func
 	int (*func)(va_list);
 } fmt_func_t;
 
-
-#endif /*MAIN_H*/
+#endif
