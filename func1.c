@@ -48,3 +48,24 @@ int print_percent(va_list arg __attribute__((unused)))
 {
 	return (write(1, "%%", 1));
 }
+
+/**
+ * print_int_or_dec - prints integer
+ * @arg: optional argument list
+ *
+ * Return: number of bytes written
+ */
+int print_int_or_dec(va_list arg)
+{
+	int len;
+	char *d = its(va_arg(arg, int));
+
+	if (d != NULL)
+	{
+		len = write(1, d, strlen(d));
+		free(d);
+	}
+	else
+		return (-1);
+	return (len);
+}
