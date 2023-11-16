@@ -9,10 +9,10 @@
  * @args: List of all arguments passed to the program
  *
  * Return: number of characters printed.
-*/
+ */
 int handle_parsing(char *format, formatter_t format_list[], va_list args)
 {
-	int i, j,val_return, chars_printed = 0;
+	int i, j, val_return, chars_printed = 0;
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -22,8 +22,8 @@ int handle_parsing(char *format, formatter_t format_list[], va_list args)
 			{
 				if (format[i + 1] == format_list[j].symb[0])
 				{
-					val_return  = format_list[j].func(args);
-					
+					val_return = format_list[j].func(args);
+
 					if (val_return == -1)
 						return (-1);
 
