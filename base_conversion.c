@@ -11,7 +11,7 @@ int print_binary(va_list args)
 	int i, len;
 	char *str, *rev_str;
 
-	num = var(args, unsigned int);
+	num = va_arg(args, unsigned int);
 
 	if (num == 0)
 		return (write(1, '0', 1));
@@ -60,7 +60,7 @@ int print_octal(va_list args)
 	int i, len;
 	char *str, *rev_str;
 
-	num = var(args, unsigned int);
+	num = va_arg(args, unsigned int);
 
 	if (num == 0)
 		return (write(1, '0', 1));
@@ -106,7 +106,7 @@ int print_hex(va_list args)
 	int i, len;
 	char *str, *rev_str;
 
-	num = var(args, unsigned int);
+	num = va_arg(args, unsigned int);
 
 	if (num == 0)
 		return (write(1, '0', 1));
@@ -155,7 +155,7 @@ int print_HEX(va_list args)
 	int i, len;
 	char *str, *rev_str;
 
-	num = var(args, unsigned int);
+	num = va_arg(args, unsigned int);
 
 	if (num == 0)
 		return (write(1, '0', 1));
