@@ -35,9 +35,11 @@ int print_int_or_dec(va_list args);
  */
 
 int print_binary(va_list args);
-int print_octal(va_list args);
-int print_hex(va_list args);
-int print_HEX(va_list args);
+/**
+* int print_octal(va_list args);
+* int print_hex(va_list args);
+* int print_HEX(va_list args);
+*/
 
 /*
  * int rot13(va_list args);
