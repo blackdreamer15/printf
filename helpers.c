@@ -2,8 +2,8 @@
 
 /**
  * reverse_str - reverses a string in place
- * @args: list of arguments
- * Return: pointer to char
+ * @s: string to be reversed
+ * Return: pointer to reversed string
  */
 char reverse_str(char *s)
 {
@@ -26,7 +26,7 @@ char reverse_str(char *s)
 		dest[i] = tmp;
 	}
 
-	return dest;
+	return (dest);
 }
 
 /**
