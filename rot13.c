@@ -3,25 +3,43 @@
 /**
  * rot13 - encodes a string using rot13
  * @args: list of arguments
- * Return: pointer to encoded string
+ * Return: number of arguments printed
  */
-char *rot13(va_list args)
+int rot13(va_list args)
 {
-	char *s = va_arg(args, char *);
-	int i, j;
-	char *alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char *rot13 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j, len;
+	char *str;
+	char *rot13;
 
-	for (i = 0; s[i] != '\0'; i++)
+	str = va_arg(args, char *);
+
+	if (str == NULL)
+		return (-1);
+
+	len = strlen(str);
+
+	rot13 = malloc(sizeof(char) * (len + 1));
+
+	if (rot13 == NULL)
+		return (-1);
+
+	for (i = 0; i < len; i++)
 	{
-		for (j = 0; alpha[j] != '\0'; j++)
-		{
-			if (s[i] == alpha[j])
-			{
-				s[i] = rot13[j];
-				break;
-			}
-		}
+		if ((str[i] >= 'a' && str[i] <= 'm') ||
+			(str[i] >= 'A' && str[i] <= 'M'))
+			rot13[i] = str[i] + 13;
+		else if ((str[i] >= 'n' && str[i] <= 'z') ||
+				 (str[i] >= 'N' && str[i] <= 'Z'))
+			rot13[i] = str[i] - 13;
+		else
+			rot13[i] = str[i];
 	}
-	return (s);
+
+	rot13[i] = '\0';
+
+	j = write(1, rot13, len);
+
+	free(rot13);
+
+	return (j);
 }
