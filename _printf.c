@@ -30,12 +30,6 @@ int _printf(const char *format, ...)
 
 
 	chars_printed = handle_parsing(format, format_list, args);
-			if (*format == 'c')
-			{
-				char c = va_arg(args, int);
-
-				chars_printed += write(1, &c, 1);
-			}
 			else if (*format == 's')
 			{
 				char *str = va_arg(args, char *);
