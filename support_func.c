@@ -29,12 +29,12 @@ char *its(int num)
 char *_binary(int value)
 {
 	int i;
-	char *arr = malloc(9);
+	char *arr = malloc(8);
 
 	if (!arr)
 		return (NULL);
-	arr[8] = '\0';
-	for (i = 7; i >= 0; i--)
+	arr[7] = '\0';
+	for (i = 6; i >= 0; i--)
 	{
 		int bit = value & 1;
 
