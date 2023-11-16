@@ -11,19 +11,43 @@ char *its(int num);
 char *_binary(int value);
 
 /**
- * struct converter - defines a struct data type for symbols and functions
- * @symb: operator
- * @func: function handling the operator*/
-struct formatter {
+ * struct formatter - struct containing format specifiers and functions
+ * @symb: formt specifier
+ * @func: function handling the operator
+ */
+typedef struct formatter
+{
 	char *symb;
 	int (*func)(va_list);
-}
-typedef struct formatter formatter_t;
+} formatter_t;
 
 /* --- FUNCTIONS --- */
 int handle_parsing(char *format, formatter_t format_list[], va_list args);
 
 int _printf(const char *format, ...);
 
-#endif /*MAIN_H*/
+int print_char(va_list args);
 
+int print_str(va_list args);
+
+int print_percent(__attribute__((unused)) va_list args);
+
+int print_int(va_list args);
+
+int print_num(va_list args);
+
+int print_binary(va_list args);
+
+int print_octal(va_list args);
+
+int print_hex(va_list args);
+
+int print_HEX(va_list args);
+
+char reverse_str(char *s);
+
+void write_base(char *str);
+
+unsigned int base_len(unsigned int num, unsigned int base);
+
+#endif /*MAIN_H*/
