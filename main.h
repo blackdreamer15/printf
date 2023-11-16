@@ -12,8 +12,10 @@ int print_char(va_list arg);
 int print_string(va_list arg);
 int print_percent(va_list arg);
 int print_int_or_dec(va_list arg);
+int print_binary(va_list arg);
 int format_handler(const char *fmt, int *indx, va_list op_args);
 char *its(int num);
+char *_binary(int value);
 
 /**
  * struct fmt_func - Struct fmt_funct

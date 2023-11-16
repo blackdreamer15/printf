@@ -18,3 +18,28 @@ char *its(int num)
 	snprintf(num_arr, num_size + 1, "%d", num);
 	return (num_arr);
 }
+
+/**
+ * _binary - converts number to binary
+ * @value: value to be converted
+ *
+ * Return: pointer to dynamically
+ * allocated array
+ */
+char *_binary(int value)
+{
+	int i;
+	char *arr = malloc(9);
+
+	if (!arr)
+		return (NULL);
+	arr[8] = '\0';
+	for (i = 7; i >= 0; i--)
+	{
+		int bit = value & 1;
+
+		arr[i] = bit + '0';
+		value >>= 1;
+	}
+	return (arr);
+}
