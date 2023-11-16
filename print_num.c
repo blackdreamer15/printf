@@ -22,16 +22,15 @@ int print_num(va_list args)
 		num = n * -1;
 	}
 
-	while (num / div > 9)
-		div *= 10;
+	while (num / divisor > 9)
+		divisor *= 10;
 
-	while (div != 0)
+	while (divisor != 0)
 	{
-		len += write(1, '0' + num / div , 1);
-		num %= div;
-		div /= 10;
+		len += write(1, '0' + num / divisor, 1);
+		num %= divisor;
+		divisor /= 10;
 	}
 
 	return (len);
 }
-
