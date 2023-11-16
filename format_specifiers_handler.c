@@ -21,9 +21,9 @@ int print_str(va_list args)
 	int len;
 	char *str = va_arg(args, char *);
 
-		if (str != NULL)
+	if (str != NULL)
 	{
-		for (len = 0; str[i] != '\0'; len++)
+		for (len = 0; str[len] != '\0'; len++)
 			write(1, &str[len], 1);
 		return (len);
 	}
@@ -35,7 +35,7 @@ int print_str(va_list args)
  * @args: list of arguments
  * Return: number of characters printed.
  */
-int print_percent(__attribute__((unused))va_list args)
+int print_percent(__attribute__((unused)) va_list args)
 {
 	return (write(1, "%%", 1));
 }
