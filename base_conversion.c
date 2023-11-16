@@ -7,44 +7,16 @@
  */
 int print_binary(va_list args)
 {
-	unsigned int num;
-	int i, len;
-	char *str, *rev_str;
+	int len;
+	char *bit = _binary(va_arg(args, int));
 
-	num = va_arg(args, unsigned int);
-
-	if (num == 0)
-		return (write(1, '0', 1));
-	if (num < 1)
-		return (-1);
-
-	len = base_len(num, 2);
-	str = malloc(sizeof(char) * (len + 1));
-
-	if (str == NULL)
-		return (-1);
-
-	for (i = 0; num > 0; i++)
+	if (bit != NULL)
 	{
-		if (num % 2 == 0)
-			str[i] = '0';
-		else
-			str[i] = '1';
-		num /= 2;
+		len = write(1, bit, strlen(bit));
+		free(bit);
 	}
-
-	rev_str = reverse_str(str);
-
-	if (rev_str == NULL)
-	{
-		free(str);
+	else
 		return (-1);
-	}
-
-	write_base(rev_str);
-
-	free(str);
-	free(rev_str);
 
 	return (len);
 }

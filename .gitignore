@@ -1,7 +1,3 @@
-# ADD LEGACY FOLDER INTO GITIGNORE
-/LEGACY/*
-
-
 # Created by https://www.toptal.com/developers/gitignore/api/c,vim,emacs
 # Edit at https://www.toptal.com/developers/gitignore?templates=c,vim,emacs
 

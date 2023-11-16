@@ -11,10 +11,12 @@ char *its(int num)
 	int num_size;
 	char *num_arr;
 
-	num_size =  snprintf(NULL, 0, "%d", num);
+	num_size = snprintf(NULL, 0, "%d", num);
 	num_arr = malloc(num_size + 1);
+
 	if (!num_arr)
 		return (NULL);
+
 	snprintf(num_arr, num_size + 1, "%d", num);
 	return (num_arr);
 }
@@ -34,6 +36,7 @@ char *_binary(int value)
 	if (!arr)
 		return (NULL);
 	arr[7] = '\0';
+
 	for (i = 6; i >= 0; i--)
 	{
 		int bit = value & 1;

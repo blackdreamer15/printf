@@ -13,11 +13,11 @@ int print_char(va_list args)
 }
 
 /**
- * print_str - prints a string
+ * print_string - prints a string
  * @args: list of arguments
  * Return: number of characters printed.
  */
-int print_str(va_list args)
+int print_string(va_list args)
 {
 	int len;
 	char *str = va_arg(args, char *);
@@ -42,14 +42,22 @@ int print_percent(__attribute__((unused)) va_list args)
 }
 
 /**
- * print_int - prints an integer
- * @args: list of arguments
- * Return: number of characters printed.
+ * print_int_or_dec - prints integer
+ * @args: optional argument list
+ *
+ * Return: number of bytes written
  */
-int print_int(va_list args)
+int print_int_or_dec(va_list args)
 {
 	int len;
+	char *d = its(va_arg(args, int));
 
-	len = print_num(args);
+	if (d != NULL)
+	{
+		len = write(1, d, strlen(d));
+		free(d);
+	}
+	else
+		return (-1);
 	return (len);
 }

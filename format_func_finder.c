@@ -14,10 +14,14 @@ int format_handler(const char *fmt, int *indx, va_list op_args)
 	int i;
 
 	fmt_func_t arr[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_percent},
-		{'d', print_int_or_dec}, {'i', print_int_or_dec}, {'b', print_binary},
-		{'\0', NULL}
-	};
+		{'c', print_char},
+		{'s', print_string},
+		{'%', print_percent},
+		{'d', print_int_or_dec},
+		{'i', print_int_or_dec},
+		{'b', print_binary},
+		{'\0', NULL}};
+
 	for (i = 0; arr[i].fmt_char != '\0'; i++)
 	{
 		if (arr[i].fmt_char == fmt[*indx])
@@ -28,4 +32,3 @@ int format_handler(const char *fmt, int *indx, va_list op_args)
 			return (-1);
 	return (-1);
 }
-
