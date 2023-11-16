@@ -2,8 +2,7 @@
 
 /**
  * _printf - produces output according to a format
- * @format: string to be formatted
- *
+ * @format: string to be formatted and printed
  * Return: number of characters printed(excluding '\0').
  */
 int _printf(const char *format, ...)
@@ -17,10 +16,12 @@ int _printf(const char *format, ...)
 		{'d', print_int},
 		{'i', print_int},
 		{'b', print_binary},
-		{'u', print_num},
+		{'u', print_unsigned},
 		{'o', print_octal},
 		{'x', print_hex},
 		{'X', print_HEX},
+		{'r', print_reversed},
+		{"R", rot13},
 		{'\0', NULL}};
 
 	if (format == NULL)
