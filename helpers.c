@@ -12,7 +12,7 @@ char reverse_str(char *s)
 
 	len = strlen(s);
 
-	dest = malloc(sizeof(char ) * (len + 1));
+	dest = malloc(sizeof(char) * (len + 1));
 
 	if (dest == NULL)
 		return (NULL);
@@ -42,3 +42,18 @@ void write_base(char *str)
 		write(1, str[i], 1);
 }
 
+/**
+ * base_len - finds length of a number in a given base
+ * @num: number to be converted
+ * @base: base to convert to
+ * Return: length of number
+ */
+unsigned int base_len(unsigned int num, unsigned int base)
+{
+	unsigned int len;
+
+	for (len = 0; num > 0; len++)
+		num /= base;
+
+	return (len);
+}
