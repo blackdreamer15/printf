@@ -29,3 +29,14 @@ int print_str(va_list args)
 	}
 	return (-1);
 }
+
+/**
+ * print_percent - prints the percentage symbol
+ * @args: list of arguments
+ * Return: number of characters printed.
+ */
+int print_percent(__attribute__((unused))va_list args)
+{
+	return (write(1, "%%", 1));
+}
+
