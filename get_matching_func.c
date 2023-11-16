@@ -1,16 +1,13 @@
 #include "main.h"
 
 /**
- * handle_parsing - takes a string and other params
- *		    to print a formatted string
- *
- * @format: string to be formatted
- * @format_list: List of all possible format-handling functions
- * @args: List of all arguments passed to the program
- *
- * Return: number of characters printed.
+ * get_matching_func - gets the matching function for the format specifier
+ * @format: format specifier
+ * @format_list: list of format specifiers and their corresponding functions
+ * @args: list of arguments
+ * Return: number of characters printed(excluding '\0').
  */
-int handle_parsing(char *format, formatter_t format_list[], va_list args)
+int get_matching_func(const char *format, formatter_t format_list[], va_list args)
 {
 	int i, j, val_return, chars_printed = 0;
 

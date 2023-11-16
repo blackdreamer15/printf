@@ -21,7 +21,7 @@ typedef struct formatter
 /* MAIN FUNCTIONS */
 int _printf(const char *format, ...);
 
-int handle_parsing(char *format, formatter_t format_list[], va_list args);
+int get_matching_func(const char *format, formatter_t format_list[], va_list args);
 int print_char(va_list args);
 int print_str(va_list args);
 int print_percent(va_list args);

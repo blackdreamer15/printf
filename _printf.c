@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	chars_printed = handle_parsing(format, format_list, args);
+	chars_printed = get_matching_func(format, format_list, args);
 
 	va_end(args);
 
