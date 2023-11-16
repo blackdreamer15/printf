@@ -5,7 +5,7 @@
  * @s: string to be reversed
  * Return: pointer to reversed string
  */
-char reverse_str(char *s)
+char *reverse_str(char *s)
 {
 	int i, len;
 	char *tmp, *dest;
