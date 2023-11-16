@@ -3,7 +3,7 @@
 /**
  * print_binary - prints int values
  * in their binary format
- * @arg
+ * @arg: int to be printed
  *
  * Return: number of bytes written
  */
