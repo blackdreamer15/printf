@@ -69,3 +69,48 @@ int print_int_or_dec(va_list args)
 		return (-1);
 	return (len);
 }
+
+/**
+ * print_unsigned - prints unsigned integer
+ * @args: optional argument list
+ * Return: number of bytes written
+ */
+int print_unsigned(va_list args)
+{
+	unsigned int n = va_arg(args, unsigned int);
+	int num, last_digit = n % 10, digit, exp = 1;
+	int len = 0;
+
+	n = n / 10;
+	num = n;
+
+	if (last_digit < 0)
+	{
+		last_digit = -last_digit;
+		num = -num;
+		n = -n;
+		_putchar('-');
+		len++;
+	}
+
+	if (num > 0)
+	{
+		while (num / 10 != 0)
+		{
+			num = num / 10;
+			exp = exp * 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			len++;
+			num = num - (digit * exp);
+			exp = exp / 10;
+		}
+	}
+	_putchar(last_digit + '0');
+
+	return (len + 1);
+}

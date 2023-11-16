@@ -29,6 +29,7 @@ int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
 int print_int_or_dec(va_list args);
+int print_unsigned(va_list args);
 int print_binary(va_list args);
 int print_hex(va_list args);
 int print_rev_string(va_list args);
@@ -38,5 +39,6 @@ int print_rot13(va_list args);
 char *its(int num);
 char *_binary(unsigned int num);
 char *_hex(unsigned int num);
+int _putchar(char c);
 
 #endif /* MAIN_H */

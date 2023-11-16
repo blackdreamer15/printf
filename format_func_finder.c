@@ -20,6 +20,7 @@ int format_func_finder(const char *fmt, int *indx, va_list op_args)
 		{'%', print_percent},
 		{'d', print_int_or_dec},
 		{'i', print_int_or_dec},
+		{'u', print_unsigned},
 		{'b', print_binary},
 		{'x', print_hex},
 		{'r', print_rev_string},
