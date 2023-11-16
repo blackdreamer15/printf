@@ -30,15 +30,6 @@ int _printf(const char *format, ...)
 
 
 	chars_printed = handle_parsing(format, format_list, args);
-			else if (*format == 's')
-			{
-				char *str = va_arg(args, char *);
-
-				if (str != NULL)
-					chars_printed +=  write(1, str, strlen(str));
-				else
-					return (-1);
-			}
 			else if (*format == '%')
 				chars_printed += write(1, format, 1);
 			else if (*format == 'd' || *format == 'i')
