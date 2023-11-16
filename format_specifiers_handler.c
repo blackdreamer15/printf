@@ -21,7 +21,7 @@ int print_str(va_list args)
 	int len;
 	char *str = va_arg(args, char *);
 
-        if (str != NULL)
+		if (str != NULL)
 	{
 		for (len = 0; str[i] != '\0'; len++)
 			write(1, &str[len], 1);
@@ -52,4 +52,3 @@ int print_int(va_list args)
 	len = print_num(args);
 	return (len);
 }
-
