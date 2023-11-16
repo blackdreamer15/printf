@@ -1,21 +1,11 @@
-#ifndef HEADER_FILE
-#define HEADER_FILE
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-int _printf(const char *format, ...);
-int print_char(va_list arg);
-int print_string(va_list arg);
-int print_percent(va_list arg);
-int print_int_or_dec(va_list arg);
-int print_binary(va_list arg);
-int format_handler(const char *fmt, int *indx, va_list op_args);
-char *its(int num);
-char *_binary(int value);
 
 /**
  * struct fmt_func - Struct fmt_funct
@@ -30,4 +20,23 @@ typedef struct fmt_func
 	int (*func)(va_list);
 } fmt_func_t;
 
-#endif
+/* MAIN FUNCTION */
+int _printf(const char *format, ...);
+
+/* FORMAT FUNCTIONS */
+int format_func_finder(const char *fmt, int *indx, va_list op_args);
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(va_list args);
+int print_int_or_dec(va_list args);
+int print_binary(va_list args);
+int print_hex(va_list args);
+int print_rev_string(va_list args);
+int print_rot13(va_list args);
+
+/* HELPER FUNCTIONS */
+char *its(int num);
+char *_binary(unsigned int num);
+char *_hex(unsigned int num);
+
+#endif /* MAIN_H */

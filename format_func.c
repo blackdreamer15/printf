@@ -2,27 +2,27 @@
 
 /**
  * print_char - prints characters
- * @arg: list of optional arguments
+ * @args: list of optional arguments
  *
  * Return: number of bytes written
  */
-int print_char(va_list arg)
+int print_char(va_list args)
 {
-	char c = va_arg(arg, int);
+	char c = va_arg(args, int);
 
 	return (write(1, &c, 1));
 }
 
 /**
  * print_string - prints strings
- * @arg: list of optional arguments
+ * @args: list of optional arguments
  *
  * Return: number of bytes written
  */
-int print_string(va_list arg)
+int print_string(va_list args)
 {
 	int i;
-	char *str = va_arg(arg, char *);
+	char *str = va_arg(args, char *);
 
 	if (str != NULL)
 	{
@@ -40,25 +40,25 @@ int print_string(va_list arg)
 
 /**
  * print_percent - prints percent sign
- * @arg: list of optional arguments
+ * @args: list of optional arguments
  *
  * Return: number of bytes written
  */
-int print_percent(va_list arg __attribute__((unused)))
+int print_percent(__attribute__((unused)) va_list args)
 {
 	return (write(1, "%%", 1));
 }
 
 /**
  * print_int_or_dec - prints integer
- * @arg: optional argument list
+ * @args: optional argument list
  *
  * Return: number of bytes written
  */
-int print_int_or_dec(va_list arg)
+int print_int_or_dec(va_list args)
 {
 	int len;
-	char *d = its(va_arg(arg, int));
+	char *d = its(va_arg(args, int));
 
 	if (d != NULL)
 	{
