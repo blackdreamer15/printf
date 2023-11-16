@@ -35,7 +35,8 @@ int print_octal(va_list args);
 int print_hex(va_list args);
 int print_HEX(va_list args);
 
-char *rot13(va_list args);
+int rot13(va_list args);
+int print_reversed(va_list args);
 
 /* HELPER FUNCTIONS */
 char *reverse_str(char *s);
