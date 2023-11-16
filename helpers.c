@@ -28,3 +28,17 @@ char reverse_str(char *s)
 
 	return dest;
 }
+
+/**
+ * write_base - print characters to stdout
+ * @str: string to be parsed
+ * Return: void
+ */
+void write_base(char *str)
+{
+	int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+		write(1, str[i], 1);
+}
+
