@@ -11,7 +11,7 @@ char *its(int num)
 	int num_size;
 	char *num_arr;
 
-	num_size =  snprintf(NULL, 0, "%d", num);
+	num_size = snprintf(NULL, 0, "%d", num);
 	num_arr = malloc(num_size + 1);
 	if (!num_arr)
 		return (NULL);
@@ -26,7 +26,7 @@ char *its(int num)
  * Return: pointer to dynamically
  * allocated array
  */
-char *_binary(int value)
+char *_binary(unsigned int value)
 {
 	int i;
 	char *arr = malloc(8);

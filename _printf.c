@@ -23,7 +23,8 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			_printed = format_handler(format, &i, list);
+			_printed = format_func_finder(format, &i, list);
+
 			if (_printed == -1)
 				return (-1);
 			characters_printed += _printed;
