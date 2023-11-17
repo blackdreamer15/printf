@@ -33,11 +33,14 @@ int print_unsigned(va_list args);
 int print_binary(va_list args);
 int print_hex(va_list args);
 int print_HEX(va_list args);
-int HEX(unsigned int);
+int HEX(unsigned int, char);
+int print_octal(va_list args);
 
 int print_x_string(va_list args);
 int print_rev_string(va_list args);
 int print_rot13(va_list args);
+
+int print_address(va_list args);
 
 /* HELPER FUNCTIONS */
 int _putchar(char c);
