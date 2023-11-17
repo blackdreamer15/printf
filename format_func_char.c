@@ -19,9 +19,11 @@ int print_char(va_list args)
  * print_percent - prints percent sign
  * @args: list of optional arguments
  *
- * Return: number of bytes written
+ * Return:
  */
-int print_percent(__attribute__((unused)) va_list args)
+int print_percent()
 {
-	return (write(1, "%%", 1));
+	_putchar(37);
+
+	return (1);
 }
