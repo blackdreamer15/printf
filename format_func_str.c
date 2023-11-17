@@ -45,3 +45,41 @@ int print_string(va_list args)
 	else
 		return (-1);
 }
+
+/**
+ * print_x_string - prints exclusive strings
+ * @args: list of optional arguments
+ * Return: number of bytes written
+ */
+int print_x_string(va_list args)
+{
+	int i, len = 0, temp;
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+		return (-1);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] >= 127 || str[i] < 32)
+		{
+			write(1, "\\x", 2);
+			len += 2;
+			temp = str[i];
+
+			if (temp < 16)
+			{
+				write(1, "0", 1);
+				len++;
+			}
+			len += HEX(temp);
+		}
+		else
+		{
+			write(1, &str[i], 1);
+			len++;
+		}
+	}
+
+	return (len);
+}
