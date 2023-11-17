@@ -65,7 +65,7 @@ int print_hex(va_list args)
 int print_HEX(va_list args)
 {
 	int i, len = 0;
-	int *array;
+	int *arr;
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
@@ -75,19 +75,56 @@ int print_HEX(va_list args)
 		len++;
 	}
 	len++;
-	array = malloc(sizeof(int) * len);
+	arr = malloc(sizeof(int) * len);
 
 	for (i = 0; i < len; i++)
 	{
-		array[i] = temp % 16;
+		arr[i] = temp % 16;
 		temp /= 16;
 	}
 	for (i = len - 1; i >= 0; i--)
 	{
-		if (array[i] > 9)
-			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		if (arr[i] > 9)
+			arr[i] = arr[i] + 7;
+
+		_putchar(arr[i] + '0');
 	}
-	free(array);
+	free(arr);
+	dd return (len);
+}
+
+/**
+ * HEX - prints hex values in uppercase
+ * @num: number to be printed
+ * Return: length of number printed.
+ */
+int HEX(unsigned int num)
+{
+	int i, len = 0;
+	int *arr;
+	unsigned int temp = num;
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		len++;
+	}
+	len++;
+	arr = malloc(sizeof(int) * len);
+
+	for (i = 0; i < len; i++)
+	{
+		arr[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = len - 1; i >= 0; i--)
+	{
+		if (arr[i] > 9)
+			arr[i] = arr[i] + 7;
+
+		_putchar(arr[i] + '0');
+	}
+	free(arr);
+
 	return (len);
 }
