@@ -50,6 +50,41 @@ int print_hex(va_list args)
 	for (i = len - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (len);
+}
+
+/**
+ * print_HEX - prints hex values in uppercase
+ * @args: list of arguments
+ * Return: length of number printed.
+ */
+int print_HEX(va_list args)
+{
+	int i, len = 0;
+	int *array;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		len++;
+	}
+	len++;
+	array = malloc(sizeof(int) * len);
+
+	for (i = 0; i < len; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = len - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
 			array[i] = array[i] + 7;
 		_putchar(array[i] + '0');
 	}

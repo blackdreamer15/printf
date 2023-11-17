@@ -23,6 +23,7 @@ int format_func_finder(const char *fmt, int *indx, va_list op_args)
 		{'u', print_unsigned},
 		{'b', print_binary},
 		{'x', print_hex},
+		{'X', print_HEX},
 		{'r', print_rev_string},
 		{'R', print_rot13},
 		{'\0', NULL}};
