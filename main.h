@@ -33,7 +33,9 @@ int print_unsigned(va_list args);
 int print_binary(va_list args);
 int print_hex(va_list args);
 int print_HEX(va_list args);
+int HEX(unsigned int);
 
+int print_x_string(va_list args);
 int print_rev_string(va_list args);
 int print_rot13(va_list args);
 
