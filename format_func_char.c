@@ -4,7 +4,7 @@
  * print_char - prints characters
  * @args: list of optional arguments
  *
- * Return: number of bytes written
+ * Return: Always 1 (Success)
  */
 int print_char(va_list args)
 {
