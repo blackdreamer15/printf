@@ -2,7 +2,7 @@
 
 /**
  * print_rev_string - prints a string in reverse
- * @arg: list of arguments
+ * @args: list of arguments
  * Return: number of bytes written
  */
 int print_rev_string(va_list args)
