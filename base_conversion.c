@@ -90,7 +90,8 @@ int print_HEX(va_list args)
 		_putchar(arr[i] + '0');
 	}
 	free(arr);
-	dd return (len);
+	
+	return (len);
 }
 
 /**
