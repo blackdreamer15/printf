@@ -20,10 +20,6 @@ int print_address(va_list args)
 
 	_putchar('0');
 	_putchar('x');
-	_putchar('7');
-	_putchar('f');
-	_putchar('f');
-	_putchar('e');
 
 	hex_len = HEX(temp, 'x');
 
