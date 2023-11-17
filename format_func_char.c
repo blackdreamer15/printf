@@ -19,9 +19,9 @@ int print_char(va_list args)
  * print_percent - prints percent sign
  * @args: list of optional arguments
  *
- * Return:
+ * Return: Always 1 (Success)
  */
-int print_percent()
+int print_percent(void)
 {
 	_putchar(37);
 
