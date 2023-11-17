@@ -97,9 +97,10 @@ int print_HEX(va_list args)
 /**
  * HEX - prints hex values in uppercase
  * @num: number to be printed
+ * @casing: uppercase or lowercase
  * Return: length of number printed.
  */
-int HEX(unsigned int num)
+int HEX(unsigned int num, char casing)
 {
 	int i, len = 0;
 	int *arr;
@@ -121,10 +122,48 @@ int HEX(unsigned int num)
 	for (i = len - 1; i >= 0; i--)
 	{
 		if (arr[i] > 9)
-			arr[i] = arr[i] + 7;
+		{
+			if (casing == 'X')
+				arr[i] = arr[i] + 7;
+			else
+				arr[i] = arr[i] + 39;
+		}
 
 		_putchar(arr[i] + '0');
 	}
+	free(arr);
+
+	return (len);
+}
+
+/**
+ * print_octal - prints octal values
+ * @args: list of arguments
+ * Return: length of number printed.
+ */
+int print_octal(va_list args)
+{
+	int i, len = 0;
+	int *arr;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
+
+	while (num / 8 != 0)
+	{
+		num /= 8;
+		len++;
+	}
+	len++;
+	arr = malloc(sizeof(int) * len);
+
+	for (i = 0; i < len; i++)
+	{
+		arr[i] = temp % 8;
+		temp /= 8;
+	}
+	for (i = len - 1; i >= 0; i--)
+		_putchar(arr[i] + '0');
+
 	free(arr);
 
 	return (len);
