@@ -9,35 +9,50 @@
  */
 int print_binary(va_list arg)
 {
-    int len;
-    char *bit = _binary(va_arg(arg, int));
+	int len;
+	char *bit = _binary(va_arg(arg, int));
 
-    if (bit != NULL)
-    {
-        len = write(1, bit, strlen(bit));
-        free(bit);
-    }
-    else
-        return (-1);
-    return (len);
+	if (bit != NULL)
+	{
+		len = write(1, bit, strlen(bit));
+		free(bit);
+	}
+	else
+		return (-1);
+	return (len);
 }
 
 /**
- * print_hex - converts from decimal to hexadecimal
+ * print_hex - prints hex values in lowercase
  * @args: list of arguments
  * Return: length of number printed.
  */
 int print_hex(va_list args)
 {
-    int len;
-    char *hex = _hex(va_arg(args, int));
+	int i, len = 0;
+	int *array;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int temp = num;
 
-    if (hex != NULL)
-    {
-        len = write(1, hex, strlen(hex));
-        free(hex);
-    }
-    else
-        return (-1);
-    return (len);
+	while (temp / 16 != 0)
+	{
+		temp /= 16;
+		len++;
+	}
+	len++;
+	array = malloc(sizeof(int) * len);
+
+	for (i = 0; i < len; i++)
+	{
+		array[i] = num % 16;
+		num /= 16;
+	}
+	for (i = len - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (len);
 }
