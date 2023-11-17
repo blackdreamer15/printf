@@ -43,29 +43,3 @@ char *_binary(unsigned int value)
 	}
 	return (arr);
 }
-
-/**
- * _hex - converts number to hexadecimal
- * @value: value to be converted
- * Return: pointer to dynamically allocated array
- */
-char *_hex(unsigned int value)
-{
-	int i;
-	char *arr = malloc(8);
-
-	if (!arr)
-		return (NULL);
-	arr[7] = '\0';
-	for (i = 6; i >= 0; i--)
-	{
-		int bit = value & 15;
-
-		if (bit < 10)
-			arr[i] = bit + '0';
-		else
-			arr[i] = bit + 'W';
-		value >>= 4;
-	}
-	return (arr);
-}

@@ -32,13 +32,14 @@ int print_int_or_dec(va_list args);
 int print_unsigned(va_list args);
 int print_binary(va_list args);
 int print_hex(va_list args);
+
 int print_rev_string(va_list args);
 int print_rot13(va_list args);
 
 /* HELPER FUNCTIONS */
+int _putchar(char c);
 char *its(int num);
 char *_binary(unsigned int num);
-char *_hex(unsigned int num);
-int _putchar(char c);
+char *rev_string(char *s);
 
 #endif /* MAIN_H */
