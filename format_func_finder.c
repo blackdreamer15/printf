@@ -24,6 +24,8 @@ int format_func_finder(const char *fmt, int *indx, va_list op_args)
 		{'b', print_binary},
 		{'x', print_hex},
 		{'X', print_HEX},
+		{'p', print_address},
+		{'o', print_octal},
 		{'S', print_x_string},
 		{'r', print_rev_string},
 		{'R', print_rot13},
