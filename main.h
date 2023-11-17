@@ -27,7 +27,7 @@ int _printf(const char *format, ...);
 int format_func_finder(const char *fmt, int *indx, va_list op_args);
 int print_char(va_list args);
 int print_string(va_list args);
-int print_percent(va_list args);
+int print_percent(void);
 int print_int_or_dec(va_list args);
 int print_unsigned(va_list args);
 int print_binary(va_list args);
