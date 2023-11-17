@@ -1,28 +1,6 @@
 #include "main.h"
 
 /**
- * rev_string - reverses a string in place
- * @s: string to be reversed
- * Return: pointer to reversed string
- */
-char *rev_string(char *s)
-{
-	int i, len;
-	char temp;
-
-	len = strlen(s);
-
-	for (i = 0; i < len / 2; i++)
-	{
-		temp = s[i];
-		s[i] = s[len - i - 1];
-		s[len - i - 1] = temp;
-	}
-
-	return (s);
-}
-
-/**
  * print_rev_string - prints a string in reverse
  * @arg: list of arguments
  * Return: number of bytes written
@@ -41,4 +19,29 @@ int print_rev_string(va_list args)
 		write(1, &str[i], 1);
 
 	return (len);
+}
+
+/**
+ * print_string - prints strings
+ * @args: list of optional arguments
+ *
+ * Return: number of bytes written
+ */
+int print_string(va_list args)
+{
+	int i;
+	char *str = va_arg(args, char *);
+
+	if (str != NULL)
+	{
+		i = 0;
+		while (str[i] != '\0')
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+		return (i);
+	}
+	else
+		return (-1);
 }
