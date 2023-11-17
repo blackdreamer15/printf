@@ -34,9 +34,9 @@ int print_hex(va_list args)
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
 
-	while (temp / 16 != 0)
+	while (num / 16 != 0)
 	{
-		temp /= 16;
+		num /= 16;
 		len++;
 	}
 	len++;
@@ -44,13 +44,13 @@ int print_hex(va_list args)
 
 	for (i = 0; i < len; i++)
 	{
-		array[i] = num % 16;
-		num /= 16;
+		array[i] = temp % 16;
+		temp /= 16;
 	}
 	for (i = len - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
-			array[i] = array[i] + 39;
+			array[i] = array[i] + 7;
 		_putchar(array[i] + '0');
 	}
 	free(array);
