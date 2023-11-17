@@ -29,21 +29,26 @@ int print_rev_string(va_list args)
  */
 int print_string(va_list args)
 {
-	int i;
 	char *str = va_arg(args, char *);
+	int i, len = 0;
 
-	if (str != NULL)
+	if (str == NULL)
 	{
-		i = 0;
-		while (str[i] != '\0')
-		{
-			write(1, &str[i], 1);
-			i++;
-		}
-		return (i);
+		str = "(null)";
+		len = strlen(str);
+
+		for (i = 0; i < len; i++)
+			_putchar(str[i]);
+
+		return (len);
 	}
-	else
-		return (-1);
+
+	len = strlen(str);
+
+	for (i = 0; i < len; i++)
+		_putchar(str[i]);
+
+	return (len);
 }
 
 /**
