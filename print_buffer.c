@@ -3,7 +3,7 @@
 /**
  * print_buffer - prints the buffer's content
  * @buffer: array of characters
- * @buffer_len: length of buffer or index for next char
+ * @buffer_len: length of buffer
  * Return: void
  */
 void print_buffer(char buffer[], int *buffer_len)
