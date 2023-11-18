@@ -8,31 +8,27 @@
  */
 int print_binary(va_list args)
 {
-	unsigned int bin = va_arg(args, unsigned int);
-	unsigned int shifter[31];
-	int len = 0;
-	int i;
+	unsigned int num = va_arg(args, unsigned int);
+	unsigned int shifter[32];
+	long unsigned int temp;
+	int i, sum, len;
 
-	if (!bin)
+	temp = 2147483648; /* (2 ^ 31) */
+	shifter[0] = num / temp;
+
+	for (i = 1; i < 32; i++)
 	{
-		_putchar('0');
-		len++;
+		temp /= 2;
+		shifter[i] = (num / temp) % 2;
 	}
-	else
-	{
-		while (bin)
-		{
-			shifter[i] = (bin % 2);
-			bin /= 2;
-			i++;
-		}
-		i--;
 
-		while (i >= 0)
+	for (i = 0, sum = 0, len = 0; i < 32; i++)
+	{
+		sum += shifter[i];
+		if (sum || i == 31)
 		{
-			_putchar(shifter[i] + '0');
+			_putchar('0' + shifter[i]);
 			len++;
-			i--;
 		}
 	}
 
