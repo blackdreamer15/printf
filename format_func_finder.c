@@ -36,11 +36,9 @@ int format_func_finder(const char *fmt, int *indx, va_list op_args)
 		if (arr[i].fmt_char == fmt[*indx])
 			return (arr[i].func(op_args));
 	}
-	/*
-	 *if (arr[i].fmt_char == '\0')
-	 *	if (fmt[*indx] == '\0')
-	 *		return (-1);
-	 *return (-1);
-	 */
-	return (NULL);
+
+	if (arr[i].fmt_char == '\0')
+		if (fmt[*indx] == '\0')
+			return (-1);
+	return (-1);
 }
