@@ -21,7 +21,7 @@ int print_char(va_list args)
  *
  * Return: Always 1 (Success)
  */
-int print_percent(va_list args __attribute__((unused)))
+int print_percent(__attribute__((unused)) va_list args)
 {
 	_putchar(37);
 
