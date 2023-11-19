@@ -29,7 +29,7 @@ int print_octal(va_list args, char *buffer, unsigned int buffer_len)
 	binary_val = binary_converter(binary_val, num, is_neg, 32);
 
 	octal_val = malloc(sizeof(char) * (11 + 1));
-	octal_val = fill_oct_array(binary_val, octal_val);
+	octal_val = octal_converter(binary_val, octal_val);
 
 	for (first_digit = i = len = 0; octal_val[i]; i++)
 	{
@@ -82,7 +82,7 @@ int print_oct_with_leading_zero(va_list args, char *buffer,
 	binary_val = binary_converter(binary_val, num, is_neg, 32);
 
 	octal_val = malloc(sizeof(char) * (11 + 1));
-	octal_val = fill_oct_array(binary_val, octal_val);
+	octal_val = octal_converter(binary_val, octal_val);
 
 	for (first_digit = i = len = 0; octal_val[i]; i++)
 	{
@@ -130,7 +130,7 @@ int print_short_octal(va_list args, char *buffer, unsigned int buffer_len)
 	binary_val = binary_converter(binary_val, num, is_neg, 16);
 
 	octal_val = malloc(sizeof(char) * (6 + 1));
-	octal_val = fill_short_oct_array(binary_val, octal_val);
+	octal_val = short_octal_converter(binary_val, octal_val);
 
 	for (first_digit = i = len = 0; octal_val[i]; i++)
 	{
@@ -179,7 +179,7 @@ int print_long_octal(va_list args, char *buffer, unsigned int buffer_len)
 	binary_val = binary_converter(binary_val, num, is_neg, 64);
 
 	octal_val = malloc(sizeof(char) * (22 + 1));
-	octal_val = fill_long_oct_array(binary_val, octal_val);
+	octal_val = long_octal_converter(binary_val, octal_val);
 	for (first_digit = i = len = 0; octal_val[i]; i++)
 	{
 		if (octal_val[i] != '0' && first_digit == 0)
