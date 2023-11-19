@@ -14,7 +14,7 @@ int print_buffer(char *buffer, unsigned int buffer_len)
 /**
  * handle_buffer - concatenates the buffer characters
  * @buffer: buffer pointer
- * @c: charcter to concatenate
+ * @c: character to concatenate
  * @buffer_len: index of buffer pointer
  * Return: index of buffer pointer.
  */
